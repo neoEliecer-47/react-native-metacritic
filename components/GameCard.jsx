@@ -1,7 +1,7 @@
-
 import { View, StyleSheet, Text, Image } from "react-native";
 
-export function GameCard({  image, title, score, description }) {
+export function GameCard({ game }) {
+  const { image, title, score, description } = game;
   return (
     <View style={styles.card}>
       <Image source={{ uri: image }} style={styles.image} />
@@ -13,28 +13,28 @@ export function GameCard({  image, title, score, description }) {
 }
 
 const styles = StyleSheet.create({
-    card: {
-      marginBottom: 42,
-    },
-    image: {
-      width: 157,
-      height: 217,
-      borderRadius: 10,
-    },
-    title: {
-      fontSize: 20,
-      fontWeight: "bold",
-      color: "#fff",
-      marginTop: 10,
-    },
-    description: {
-      fontSize: 16,
-      color: "#eee",
-    },
-    score: {
-      fontSize: 20,
-      fontWeight: "bold",
-      color: "green",
-      marginBottom: 10,
-    },
-  });
+  card: {
+    marginBottom: 42,
+  },
+  image: {
+    width: 157,
+    height: 217,
+    borderRadius: 10,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#fff",
+    marginTop: 10,
+  },
+  description: {
+    fontSize: 16,
+    color: "#eee",
+  },
+  score: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "green",
+    marginBottom: 10,
+  },
+});
