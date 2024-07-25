@@ -4,13 +4,14 @@ import { View, StyleSheet, Text, Image, Animated } from "react-native";
 export function GameCard({ game }) {
   const { image, title, score, description } = game;
   return (
-    <View style={styles.card}>
-      <View style={styles.imageContainer}>
-        <Image source={{ uri: image }} style={styles.image} />
+    <View className="flex-row bg-slate-500/10 p-4 rounded-xl gap-4 mb-10">
+      <Image source={{ uri: image }} style={styles.image} />
+
+      <View>
+        <Text className="mb-1" style={styles.title}>{title}</Text>
+        <Text style={styles.score}>{score}</Text>
+        <Text style={styles.description}>{description}</Text>
       </View>
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.score}>{score}</Text>
-      <Text style={styles.description}>{description}</Text>
     </View>
   );
 }
@@ -45,8 +46,8 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
+    alignItems: "center",
+    justifyContent: "center",
   },
   title: {
     fontSize: 20,
