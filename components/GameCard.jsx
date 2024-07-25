@@ -5,7 +5,9 @@ export function GameCard({ game }) {
   const { image, title, score, description } = game;
   return (
     <View style={styles.card}>
-      <Image source={{ uri: image }} style={styles.image} />
+      <View style={styles.imageContainer}>
+        <Image source={{ uri: image }} style={styles.image} />
+      </View>
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.score}>{score}</Text>
       <Text style={styles.description}>{description}</Text>
@@ -40,6 +42,11 @@ const styles = StyleSheet.create({
     width: 157,
     height: 217,
     borderRadius: 10,
+  },
+  imageContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   title: {
     fontSize: 20,
