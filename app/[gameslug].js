@@ -31,15 +31,28 @@ export default function GameDetails() {
         ) : (
           <ScrollView>
             <View className="justify-center items-center">
-              <Image 
+              <Image
                 className="mb-4 rounded-lg"
                 source={{ uri: gameInfo.img }}
                 style={{ width: 310, height: 430 }}
               />
-            <Score score={gameInfo.score} maxScore={100}/>
-            <Text className="text-black/75 text-2xl font-bold mb-8 ">{gameInfo.title}</Text>
-            <Text className="text-black/75 text-base text-center font-bold mb-8 ">{gameInfo.description}</Text>
-
+              <Score score={gameInfo.score} maxScore={100} />
+              <Text className="text-black/75 text-2xl font-bold mb-8 ">
+                {gameInfo.title}
+              </Text>
+              <Text className="text-black/75 text-base text-center font-bold mb-8">
+                {gameInfo.description}
+              </Text>
+              <View className="flex justify-center items-center">
+                <Text className="text-xl">Reviews</Text>
+              </View>
+              <View>
+                {gameInfo.rawReviews.map(({ score, quote, date }) => (
+                  <Text className="text-blue-500 text-base text-center font-bold mb-8">
+                    {quote}
+                  </Text>
+                ))}
+              </View>
             </View>
           </ScrollView>
         )}

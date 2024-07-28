@@ -1,6 +1,6 @@
 import { Link } from "expo-router";
 import { ScrollView, Text, Pressable } from "react-native";
-import { HomeIcon } from "../components/Icons";
+import { HomeIcon } from "../../components/Icons";
 
 export default function About() {
   return (
