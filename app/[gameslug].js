@@ -1,8 +1,9 @@
 import { useLocalSearchParams } from "expo-router";
-import { ActivityIndicator, ScrollView, Text, View } from "react-native";
+import { ActivityIndicator, Image, ScrollView, Text, View } from "react-native";
 import { Stack } from "expo-router";
 import { useEffect, useState } from "react";
 import { getGameDetails } from "../lib/metacritic";
+import { Score } from "../components/Score";
 
 export default function GameDetails() {
   const { gameslug } = useLocalSearchParams();
@@ -29,7 +30,17 @@ export default function GameDetails() {
           <ActivityIndicator color="#fff" size="large" />
         ) : (
           <ScrollView>
-            <Text>detalle del juego {gameslug}</Text>
+            <View className="justify-center items-center">
+              <Image 
+                className="mb-4 rounded-lg"
+                source={{ uri: gameInfo.img }}
+                style={{ width: 310, height: 430 }}
+              />
+            <Score score={gameInfo.score} maxScore={100}/>
+            <Text className="text-black/75 text-2xl font-bold mb-8 ">{gameInfo.title}</Text>
+            <Text className="text-black/75 text-base text-center font-bold mb-8 ">{gameInfo.description}</Text>
+
+            </View>
           </ScrollView>
         )}
       </View>
